@@ -1,31 +1,165 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active" style="height: 399px" style=" width:100%" />
+        <img src="~/Content/Image/antique.jpg" alt="ASP.NET" class="img-responsive movingImg" />
+        <div class="carousel-caption" role="option">
+            @*<p>
+                Learn how to build ASP.NET apps that can run anywhere.
+                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                    Learn More
+                </a>
+            </p>*@
+        </div>
+    </div>
+    <div class="item" style="height: 499px">
+        <img src="~/Content/Image/spanner.jpg" alt="Asp.NET" class="img-responsive movingImg" style=" width:100%;height:200%" />
+        <div class="carousel-caption" role="option">
+            @*<p>
+                There are powerful new features in Visual Studio for building modern web apps.
+                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                    Learn More
+                </a>
+            </p>*@
+        </div>
+    </div>
+    <div class="item" style="height: 399px">
+        <img src="~/Content/Image/range-rover.jpg" alt="Package Management" class="img-responsive movingImg" style=" width:100%" />
+        <div class="carousel-caption" role="option">
+            @*<p>
+                Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
+                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
+                    Learn More
+                </a>
+            </p>*@
+        </div>
+    </div>
+    <div class="item" style="height: 499px">
+        <img src="~/Content/Image/car.jpg" alt="Microsoft Azure" class="img-responsive movingImg" style=" width:100%" />
+        <div class="carousel-caption" role="option">
+            @*<p>
+                Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                    Learn More
+                </a>
+            </p>*@
+            </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+            <div id="index" class="jumbotron">
+                <h1>Samy's Auto</h1>
+                <p class="lead">Samys Auto offers high quality maintenance services with genuine parts and skilled labour.</p>
+                @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+            </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+            <div id="index" class="row">
+
+                @*</div>
+                            <div class="col-md-4">
+                                <h2>Get more libraries</h2>
+                                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+                            </div>
+                            <div class="col-md-4">
+                                <h2>Web Hosting</h2>
+                                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                            </div>
+                    </div>*@
+                @*<div class="container-fluid">*@
+                <div class="col-md-4 row">
+                    <h2>
+                        <strong>What we Do</strong>
+                    </h2>
+                </div>
+            </div>
+            @*<div id="div1" style="display:inline-block; text-align:justify">
+                <div class="col-md-4 row pt-1">*@
+            <div class="col-md-4">
+                <p>
+                    Samy's Auto brings together hassle free car servicing and
+                    detailing with 24x7 customer care.We are India's first car
+                    service company that works in night hours to meet your busy
+                    schedule.The Motorman helps in maximising the lifespan and
+                    car value with regular car servicing.
+                </p>
+            </div>
+
+
+            @*<div id="div2" style="display:inline-block;float:right;padding-left:450px">
+                <div class="col-md-5 row pt-1">*@
+
+            <div class="col-md-4">
+                <p>
+                    Our partnering service stations are trained to
+                    service a wide range of make and model of cars
+                    using the latest techniques and diagnostic equipment.
+                    We aim at offering straightforward and honest
+                    service without upselling spare parts or services.
+                </p>
+                @*<a href="#">Packaged Car service</a>*@
+
+       
+@*BRANDS*@
+@*<div class="col-sm-12 col-md-6 noo-clients">
+        <div class="row row-fluid">
+            <div class="col-sm-6">
+                <div class="title-left">
+                    <h2 class="noo-title">
+
+                        <strong>Brands We Service</strong>
+                    </h2>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <p>
+
+                </p>
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+        <div class="clients noo-clients-default">
+            <div class="row">
+                <ul class="noo-slider-clients">
+                    <li class="noo_client_item">
+                        <a href="#">
+                            <img width="145" height="125" src="~/Content/183px-Volkswagen_logo.png" alt="" />
+                        </a>
+                    </li>
+                    <li class="noo_client_item">
+                        <a href="#">
+                            <img width="145" height="125" src="~/Content/bmw.jpg/>" alt="" />
+                        </a>
+                    </li>
+
+                    <li class="noo_client_item">
+                        <a href="#">
+                            <img width="145" height="125" src="~/Content/mercedes.jpg/>" alt="" />
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>*@
+
+

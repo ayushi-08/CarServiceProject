@@ -1,0 +1,90 @@
+﻿@model CarProject.ViewModels.CarServiceViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Car Record For Customer</h2>
+<div id="div3" style=" display:inline-block">
+    <form>
+        Make:<br>
+        <input type="text" value="@Model.Cars.Make" readonly>
+        <br>
+        Model:<br>
+        <input type="text" value="@Model.Cars.Model" readonly>
+        <br>
+    </form>
+</div>
+<div id="div4" style=" display:inline-block; float:right; padding-right:450px">
+    <form>
+        Style:<br>
+        <input type="text" value="@Model.Cars.Style" readonly>
+        <br>
+        Year:<br>
+        <input type="text" value="@Model.Cars.Year" readonly>
+        <br>
+    </form>
+</div>
+
+<h2>Service</h2>
+@using (Html.BeginForm("NewService", "Service"))
+{
+    <div id="div1" style=" display:inline-block">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Services.ServiceType)
+            @Html.DropDownListFor(m => m.Services.ServiceTypeId, new SelectList(Model.serviceTypes, "Id", "Name"), "Select Service", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Services.Details)
+            @Html.TextBoxFor(m => m.Services.Details, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div id="div2 " style="display :inline-block;float:right; padding-right:450px">
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Services.Miles)
+            @Html.TextBoxFor(m => m.Services.Miles, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Services.Price)
+            @Html.TextBoxFor(m => m.Services.Price, new { @class = "form-control" })
+        </div>
+    </div>
+
+    @Html.HiddenFor(m => m.Cars.Id)
+    <br />
+    <button class="btn btn-primary" type="submit">Add Service</button>
+}
+
+<h2> Past Service Records</h2>
+<table class=" table table-bordered">
+    <tr>
+        <th>Miles</th>
+        <th>Price</th>
+        <th>DateAdded</th>
+        <th>Details</th>
+        <th>ServiceTypeId</th>
+        <th>Service Type</th>
+    </tr>
+
+    @foreach (var item in Model.PastServices)
+    {
+
+        if (item.CarId == Model.Cars.Id)
+        {
+            <tr>
+                <td>@item.Miles</td>
+                <td>@item.Price</td>
+                <td>@item.DateAdded</td>
+                <td>@item.Details</td>
+                <td>@item.ServiceTypeId</td>
+                <td>@item.ServiceType.Name</td>
+                @if (item.DateAdded == DateTime.Today.Date)
+                {
+                    <td>@Html.ActionLink("Delete", "DeleteService", item, new { @class = "btn btn-danger" })</td>
+                }
+            </tr>
+        }
+    }
+
+</table>

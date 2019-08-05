@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CarProject.Models.ApplicationUser>
+@{
+    ViewBag.Title = "ViewCustomer";
+}
+
+<h2>Customers</h2>
+@section css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
+}
+
+    <head>
+        @*<title>Bootstrap Example</title>*@
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<p class="btn" style="display:inline-block;float:left"> @Html.ActionLink("+ Create New Customer", "Create","", new { @class = "btn btn-primary"})</p>
+
+<div class="container" style="display:inline-block; float:right">
+    <input class="form-control" id="myInput" type="text" placeholder="Search.." style="display:inline-block; float:right">
+    <br>
+    <table id="myTable" class="table table-bordered" style="margin-top:50px">
+        <thead>
+            <tr id="headers" class="headers">
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th> </th>
+            </tr>
+        </thead>
+
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.FirstName</td>
+                <td>@c.LastName</td>
+                <td>@c.Email</td>
+                <td>@c.PhoneNumber</td>
+
+                <td>
+                    @Html.ActionLink("View Cars", "ViewCars", "Car", new { c.Id}, new { @class = "fa fa-car", @style = "color:black; margin-right:20px" })
+                    @Html.ActionLink("Edit", "Edit", "User", c, new { @class = "fa fa-edit", @style = "color:black ; margin-right:10px" })
+                    @Html.ActionLink("Delete", "Delete", "User", c, new { @class = "fa fa-trash", @style = "color:black ; margin-right:5px", title = "Delete" })
+                    @*<button data-customer-id="@c.id" type="button" class="fa fa-trash jq-delete" , style="color:black "></button>*@
+                    @*<a onclick="Delete(@c.)" class="btn btn-default"><i class="fa fa-trash"></i>  Delete</a>*@
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+

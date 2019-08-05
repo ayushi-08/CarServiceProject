@@ -1,0 +1,79 @@
+﻿@model CarProject.ViewModels.CarAndCustomerViewModel
+
+@{
+    ViewBag.Title = "View Cars";
+}
+
+@{
+    var userUid = Model.User.Id;
+}
+<h2>ViewCars</h2>
+<h2>Car Record For Customer</h2>
+<table id="customers" class="table" style="">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td>@Model.User.FirstName</td>
+        <td>@Model.User.LastName</td>
+        <td>@Model.User.PhoneNumber</td>
+        <td>@Model.User.Email</td>
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create","Car", Model.User, new { @class = "btn btn-primary" })
+</p>
+
+<h2>Car Details</h2>
+
+<table class=" table table-bordered">
+    <tr>
+        <th>VIN</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Style</th>
+        <th>Year</th>
+        <th>&nbsp;</th>
+    </tr>
+    @foreach (var item in Model.Cars)
+    {
+        if (item.UserId == userUid)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Make)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Style)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        @if (ViewContext.HttpContext.User.IsInRole("admin"))
+        {
+            <td>@Html.ActionLink("Delete", "Delete", "Car", item, new { @class = "btn btn-danger" })</td>
+        }
+        else
+        {
+            <td>
+            @Html.ActionLink("Edit", "Edit", "Car", item, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Add Service", "ViewService", "Service", item, new { @class = "btn btn-success" })
+            </td>
+        }
+
+         </tr>
+        }
+
+    }
+
+</table>
